@@ -1,0 +1,142 @@
+# магические методы 
+# dunder methods (double  underscore)
+# служебные методы
+
+# магические методы - это методы встроенные в пакете файлов питон  для облегчения работы программистов при написании кодов.
+
+# res = 5 + 5 #( тут срабатыввает магический метод __add__)
+# print(res)
+
+# class A(int):
+#     pass
+# obj = A()
+# print(dir(obj))
+
+# a = int
+# print(dir(a))
+
+# магические методы сравнение:
+# __eq__(self, other) - ==
+# __ne__(self, other) - !=
+# __lt__(self, other) - <
+# __gt__(self, other) - >
+# __le__(self, other) - <=
+# __ge__(self, other) - >=
+
+# class Word(str):
+#     def __init__(self, word) -> None:
+#         self.word = word
+    
+#     def __gt__(self, __x: str) -> bool:
+#         print('gt сработал!')
+#         return len(self) > len(__x)
+ obj = Word('Azat')
+# obj2 = Word('Ramina')
+# print(obj2 > obj)
+# _______________________________________________________________________________________________________
+
+
+# Конструктор - __new__
+# Инициализатор - __init__
+
+# магический метод конструктор (__new__) - отвечает за конструкцию за определение объектов класса
+# class Converter(float):
+#     def __new__(cls, x):
+#         print('New сработал!')
+#         print('!!!', cls)
+#         print('xxx', x)
+#         if  x < 1000:
+#             raise Exception('X меньше 1000!')
+#         return super().__new__ (cls, x)
+
+# # obj = Converter(100)
+
+#     def __init__(self, number):
+#         print('---', self)
+#         self.number = number
+
+# obj = Converter(2000)
+# print(obj.number)
+
+# ________________________________________________________________________________________________________
+
+# dunder methods - дандер методы для строкового отображения объектов
+
+# __str__ - для отображения строки, которую будут видеть пользователи
+# __repr__ - строковую информацию как создавать экземпляр от класса
+
+# class Base:
+#     def __init__(self, stroka):
+#         self.string = stroka
+
+#     def __repr__(self):
+#         return f'Base ("{self.string}")'
+
+# word = Base('Hello, Azat!')
+# print(repr(word))
+# word2 = eval(repr(word))
+# print(word2)
+#     def __str__(self):
+#         return f'object: {self.string}'
+
+# word = Base('Hello, Azat!')
+# print(word)
+
+# class Users:
+#     def __init__(self, name):
+#         self.name = name
+    
+#     def __repr__(self):
+#         return f'{self.name}'
+
+# user = Users('Ramina')
+# print(repr(user))
+
+
+# class Cifra(int):
+#     def __new__(cls, number):
+#         print('Vyzov new')
+#         instance = super().__new__(cls)
+#         if not 0 < number < 100:
+#             raise Exception('Введите число от 0 до 100!')
+#         return instance
+
+#     def __init__(self, number):
+#         self.number  = number
+
+#     def __add__(self, other):
+#         print('add вызван!')
+#         print(f'Result: {self}+{other} = {self.number +other.number}')
+
+# value1 = Cifra(25)
+# value2 = Cifra(24)
+# value1 + value2
+
+
+# list_ = ['Azat', 'Ramina', 'Kamila', 'Beka', 'Jeka']
+# inp = int(input('Введите индекс массив: '))
+# value = input('Введите новое значение списка: ')
+# for i, v in enumerate(list_):
+#     if inp == i:
+#         list_[i] = value
+# print(list_)
+
+
+# class A:
+#     def _some_method(self):
+#         print('some_method A')
+# class B(A):
+#     def _some_method(self):
+#         super().some_method()
+
+# x = B()
+# x._some_method()
+
+class A:
+    x = 1
+
+class B(A):
+    x = 10
+
+asd = B()
+print(asd.x)

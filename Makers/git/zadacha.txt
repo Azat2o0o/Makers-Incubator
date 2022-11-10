@@ -1,0 +1,24 @@
+inp = int(input('Введите число: '))
+oper = input('Введите одного из след. символов: + ; - ; * ; / ; ** ; //')
+inp2 = int(input('Введите число'))
+
+if oper == '+':
+    print(inp+inp2)
+
+elif oper == '-':
+    print(inp-inp2)
+
+elif oper == '*':
+    print(inp*inp2)
+
+elif oper == '/':
+    print(inp/inp2)
+
+elif oper == '**':
+    print(inp**inp2)
+
+elif oper == '//':
+    print(inp//inp2)
+
+else:
+    print('Вы неправильно указали операцию')
